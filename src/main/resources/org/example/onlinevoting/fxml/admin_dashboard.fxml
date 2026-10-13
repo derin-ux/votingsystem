@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.onlinevoting.controller.AdminDashboardController"
+            stylesheets="@../css/voter.css , @../css/admin_dashboard.css"
+            styleClass="root-pane"
+            prefWidth="1100" prefHeight="720">
+
+    <top>
+        <HBox styleClass="admin-bar" alignment="CENTER_LEFT">
+            <VBox spacing="2">
+                <Label text="Admin dashboard" styleClass="ballot-title"/>
+                <Label fx:id="adminNameLabel" styleClass="subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Hyperlink text="Log out" onAction="#handleLogout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+
+            <!-- ============ CANDIDATES ============ -->
+            <Tab text="Candidates">
+                <HBox styleClass="tab-body" spacing="16">
+                    <VBox styleClass="form-panel" spacing="10" prefWidth="290" minWidth="290">
+                        <Label text="Register candidate" styleClass="panel-title"/>
+
+                        <Label text="First name" styleClass="field-label"/>
+                        <TextField fx:id="candFirstNameField"/>
+
+                        <Label text="Last name" styleClass="field-label"/>
+                        <TextField fx:id="candLastNameField"/>
+
+                        <Label text="NIN" styleClass="field-label"/>
+                        <TextField fx:id="candNinField" promptText="11-digit NIN"/>
+
+                        <Label text="Phone" styleClass="field-label"/>
+                        <TextField fx:id="candPhoneField"/>
+
+                        <Label text="Email" styleClass="field-label"/>
+                        <TextField fx:id="candEmailField"/>
+
+                        <Label text="Position" styleClass="field-label"/>
+                        <ComboBox fx:id="candPositionCombo" maxWidth="Infinity" promptText="Choose a position"/>
+
+                        <Label fx:id="candidateMessageLabel" styleClass="error-label"
+                               visible="false" wrapText="true" minHeight="18"/>
+
+                        <Button text="Register" onAction="#handleRegisterCandidate"
+                                maxWidth="Infinity" styleClass="primary-button"/>
+                        <HBox spacing="8">
+                            <Button text="Update" onAction="#handleUpdateCandidate"
+                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="secondary-button"/>
+                            <Button text="Delete" onAction="#handleDeleteCandidate"
+                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="danger-button"/>
+                        </HBox>
+                        <Button text="Clear form" onAction="#handleClearCandidateForm"
+                                maxWidth="Infinity" styleClass="secondary-button"/>
+                    </VBox>
+
+                    <TableView fx:id="candidatesTable" HBox.hgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="candFirstNameCol" text="First name" prefWidth="120"/>
+                            <TableColumn fx:id="candLastNameCol" text="Last name" prefWidth="120"/>
+                            <TableColumn fx:id="candNinCol" text="NIN" prefWidth="120"/>
+                            <TableColumn fx:id="candPhoneCol" text="Phone" prefWidth="110"/>
+                            <TableColumn fx:id="candEmailCol" text="Email" prefWidth="170"/>
+                            <TableColumn fx:id="candPositionCol" text="Position" prefWidth="110"/>
+                        </columns>
+                    </TableView>
+                </HBox>
+            </Tab>
+
+            <!-- ============ POSITIONS ============ -->
+            <Tab text="Positions">
+                <HBox styleClass="tab-body" spacing="16">
+                    <VBox styleClass="form-panel" spacing="10" prefWidth="290" minWidth="290">
+                        <Label text="Manage positions" styleClass="panel-title"/>
+
+                        <Label text="Title" styleClass="field-label"/>
+                        <TextField fx:id="positionTitleField" promptText="e.g. President"/>
+
+                        <Label fx:id="positionMessageLabel" styleClass="error-label"
+                               visible="false" wrapText="true" minHeight="18"/>
+
+                        <Button text="Add position" onAction="#handleAddPosition"
+                                maxWidth="Infinity" styleClass="primary-button"/>
+                        <HBox spacing="8">
+                            <Button text="Update" onAction="#handleUpdatePosition"
+                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="secondary-button"/>
+                            <Button text="Delete" onAction="#handleDeletePosition"
+                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="danger-button"/>
+                        </HBox>
+                    </VBox>
+
+                    <TableView fx:id="positionsTable" HBox.hgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="positionTitleCol" text="Title" prefWidth="300"/>
+                        </columns>
+                    </TableView>
+                </HBox>
+            </Tab>
+
+            <!-- ============ ELECTIONS ============ -->
+            <Tab text="Elections">
+                <HBox styleClass="tab-body" spacing="16">
+                    <VBox styleClass="form-panel" spacing="10" prefWidth="290" minWidth="290">
+                        <Label text="Set up election" styleClass="panel-title"/>
+
+                        <Label text="Title" styleClass="field-label"/>
+                        <TextField fx:id="electionFormTitleField"/>
+
+                        <Label text="Description" styleClass="field-label"/>
+                        <TextArea fx:id="electionDescriptionArea" prefRowCount="3" wrapText="true"/>
+
+                        <Label text="Date" styleClass="field-label"/>
+                        <DatePicker fx:id="electionDatePicker" maxWidth="Infinity"/>
+
+                        <Label text="Start time" styleClass="field-label"/>
+                        <TextField fx:id="electionTimeField" promptText="HH:mm, e.g. 08:00"/>
+
+                        <Label fx:id="electionMessageLabel" styleClass="error-label"
+                               visible="false" wrapText="true" minHeight="18"/>
+
+                        <Button text="Create election" onAction="#handleCreateElection"
+                                maxWidth="Infinity" styleClass="primary-button"/>
+                        <Button text="Save changes" onAction="#handleUpdateElection"
+                                maxWidth="Infinity" styleClass="secondary-button"/>
+                        <HBox spacing="8">
+                            <Button text="Start" onAction="#handleStartElection"
+                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="secondary-button"/>
+                            <Button text="End" onAction="#handleEndElection"
+                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="danger-button"/>
+                        </HBox>
+                    </VBox>
+
+                    <TableView fx:id="electionsTable" HBox.hgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="electionTitleCol" text="Title" prefWidth="200"/>
+                            <TableColumn fx:id="electionDateCol" text="Date" prefWidth="110"/>
+                            <TableColumn fx:id="electionTimeCol" text="Start time" prefWidth="100"/>
+                            <TableColumn fx:id="electionStatusCol" text="Status" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </HBox>
+            </Tab>
+
+            <!-- ============ RESULTS ============ -->
+            <Tab text="Results">
+                <VBox styleClass="tab-body" spacing="12">
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label fx:id="resultsElectionLabel" styleClass="panel-title"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="Refresh" onAction="#handleRefreshResults"
+                                styleClass="secondary-button" prefWidth="110"/>
+                    </HBox>
+                    <ScrollPane fitToWidth="true" styleClass="ballot-scroll" hbarPolicy="NEVER"
+                                VBox.vgrow="ALWAYS">
+                        <VBox fx:id="resultsBox" spacing="20" styleClass="ballot-content"/>
+                    </ScrollPane>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

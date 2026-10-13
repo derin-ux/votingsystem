@@ -1,0 +1,64 @@
+.root-pane {
+    -fx-background-color: #16181d;
+}
+
+.card {
+    -fx-background-color: #1f2229;
+    -fx-background-radius: 12;
+    -fx-border-color: #2e323b;
+    -fx-border-radius: 12;
+    -fx-padding: 32 36 28 36;
+}
+
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3f4f6;
+}
+
+.subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #9ca3af;
+}
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #9ca3af;
+}
+
+.text-field, .password-field {
+    -fx-pref-height: 36;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #3b404b;
+    -fx-background-color: #2a2e37;
+    -fx-text-fill: #f3f4f6;
+    -fx-prompt-text-fill: #6b7280;
+    -fx-highlight-fill: #2563eb;
+    -fx-highlight-text-fill: white;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #2563eb;
+}
+
+.error-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #f87171;
+}
+
+.primary-button {
+    -fx-background-color: #f3f4f6;
+    -fx-text-fill: #111111;
+    -fx-background-radius: 8;
+    -fx-pref-height: 38;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #d1d5db;
+}
+
+.hyperlink {
+    -fx-text-fill: #60a5fa;
+}
