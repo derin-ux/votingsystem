@@ -14,7 +14,7 @@
      config.properties
 
     # Logs
-    *.logs
+    *.log
 
      # OS files
      .DS_Store
