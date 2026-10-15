@@ -41,41 +41,44 @@
             <!-- ============ CANDIDATES ============ -->
             <Tab text="Candidates">
                 <HBox styleClass="tab-body" spacing="16">
-                    <VBox styleClass="form-panel" spacing="10" prefWidth="290" minWidth="290">
-                        <Label text="Register candidate" styleClass="panel-title"/>
+                    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="form-scroll"
+                                prefWidth="310" minWidth="310">
+                        <VBox styleClass="form-panel" spacing="10">
+                            <Label text="Register candidate" styleClass="panel-title"/>
 
-                        <Label text="First name" styleClass="field-label"/>
-                        <TextField fx:id="candFirstNameField"/>
+                            <Label text="First name" styleClass="field-label"/>
+                            <TextField fx:id="candFirstNameField"/>
 
-                        <Label text="Last name" styleClass="field-label"/>
-                        <TextField fx:id="candLastNameField"/>
+                            <Label text="Last name" styleClass="field-label"/>
+                            <TextField fx:id="candLastNameField"/>
 
-                        <Label text="NIN" styleClass="field-label"/>
-                        <TextField fx:id="candNinField" promptText="11-digit NIN"/>
+                            <Label text="NIN" styleClass="field-label"/>
+                            <TextField fx:id="candNinField" promptText="11-digit NIN"/>
 
-                        <Label text="Phone" styleClass="field-label"/>
-                        <TextField fx:id="candPhoneField"/>
+                            <Label text="Phone" styleClass="field-label"/>
+                            <TextField fx:id="candPhoneField"/>
 
-                        <Label text="Email" styleClass="field-label"/>
-                        <TextField fx:id="candEmailField"/>
+                            <Label text="Email" styleClass="field-label"/>
+                            <TextField fx:id="candEmailField"/>
 
-                        <Label text="Position" styleClass="field-label"/>
-                        <ComboBox fx:id="candPositionCombo" maxWidth="Infinity" promptText="Choose a position"/>
+                            <Label text="Position" styleClass="field-label"/>
+                            <ComboBox fx:id="candPositionCombo" maxWidth="Infinity" promptText="Choose a position"/>
 
-                        <Label fx:id="candidateMessageLabel" styleClass="error-label"
-                               visible="false" wrapText="true" minHeight="18"/>
+                            <Label fx:id="candidateMessageLabel" styleClass="error-label"
+                                   visible="false" wrapText="true" minHeight="18"/>
 
-                        <Button text="Register" onAction="#handleRegisterCandidate"
-                                maxWidth="Infinity" styleClass="primary-button"/>
-                        <HBox spacing="8">
-                            <Button text="Update" onAction="#handleUpdateCandidate"
-                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="secondary-button"/>
-                            <Button text="Delete" onAction="#handleDeleteCandidate"
-                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="danger-button"/>
-                        </HBox>
-                        <Button text="Clear form" onAction="#handleClearCandidateForm"
-                                maxWidth="Infinity" styleClass="secondary-button"/>
-                    </VBox>
+                            <Button text="Register" onAction="#handleRegisterCandidate"
+                                    maxWidth="Infinity" styleClass="primary-button"/>
+                            <HBox spacing="8">
+                                <Button text="Update" onAction="#handleUpdateCandidate"
+                                        HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="secondary-button"/>
+                                <Button text="Delete" onAction="#handleDeleteCandidate"
+                                        HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="danger-button"/>
+                            </HBox>
+                            <Button text="Clear form" onAction="#handleClearCandidateForm"
+                                    maxWidth="Infinity" styleClass="secondary-button"/>
+                        </VBox>
+                    </ScrollPane>
 
                     <TableView fx:id="candidatesTable" HBox.hgrow="ALWAYS">
                         <columns>
@@ -123,35 +126,38 @@
             <!-- ============ ELECTIONS ============ -->
             <Tab text="Elections">
                 <HBox styleClass="tab-body" spacing="16">
-                    <VBox styleClass="form-panel" spacing="10" prefWidth="290" minWidth="290">
-                        <Label text="Set up election" styleClass="panel-title"/>
+                    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="form-scroll"
+                                prefWidth="310" minWidth="310">
+                        <VBox styleClass="form-panel" spacing="10">
+                            <Label text="Set up election" styleClass="panel-title"/>
 
-                        <Label text="Title" styleClass="field-label"/>
-                        <TextField fx:id="electionFormTitleField"/>
+                            <Label text="Title" styleClass="field-label"/>
+                            <TextField fx:id="electionFormTitleField"/>
 
-                        <Label text="Description" styleClass="field-label"/>
-                        <TextArea fx:id="electionDescriptionArea" prefRowCount="3" wrapText="true"/>
+                            <Label text="Description" styleClass="field-label"/>
+                            <TextArea fx:id="electionDescriptionArea" prefRowCount="3" wrapText="true"/>
 
-                        <Label text="Date" styleClass="field-label"/>
-                        <DatePicker fx:id="electionDatePicker" maxWidth="Infinity"/>
+                            <Label text="Date" styleClass="field-label"/>
+                            <DatePicker fx:id="electionDatePicker" maxWidth="Infinity"/>
 
-                        <Label text="Start time" styleClass="field-label"/>
-                        <TextField fx:id="electionTimeField" promptText="HH:mm, e.g. 08:00"/>
+                            <Label text="Start time" styleClass="field-label"/>
+                            <TextField fx:id="electionTimeField" promptText="HH:mm, e.g. 08:00"/>
 
-                        <Label fx:id="electionMessageLabel" styleClass="error-label"
-                               visible="false" wrapText="true" minHeight="18"/>
+                            <Label fx:id="electionMessageLabel" styleClass="error-label"
+                                   visible="false" wrapText="true" minHeight="18"/>
 
-                        <Button text="Create election" onAction="#handleCreateElection"
-                                maxWidth="Infinity" styleClass="primary-button"/>
-                        <Button text="Save changes" onAction="#handleUpdateElection"
-                                maxWidth="Infinity" styleClass="secondary-button"/>
-                        <HBox spacing="8">
-                            <Button text="Start" onAction="#handleStartElection"
-                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="secondary-button"/>
-                            <Button text="End" onAction="#handleEndElection"
-                                    HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="danger-button"/>
-                        </HBox>
-                    </VBox>
+                            <Button text="Create election" onAction="#handleCreateElection"
+                                    maxWidth="Infinity" styleClass="primary-button"/>
+                            <Button text="Save changes" onAction="#handleUpdateElection"
+                                    maxWidth="Infinity" styleClass="secondary-button"/>
+                            <HBox spacing="8">
+                                <Button text="Start" onAction="#handleStartElection"
+                                        HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="secondary-button"/>
+                                <Button text="End" onAction="#handleEndElection"
+                                        HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="danger-button"/>
+                            </HBox>
+                        </VBox>
+                    </ScrollPane>
 
                     <TableView fx:id="electionsTable" HBox.hgrow="ALWAYS">
                         <columns>

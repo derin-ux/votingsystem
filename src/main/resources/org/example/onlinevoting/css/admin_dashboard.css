@@ -17,6 +17,43 @@
     -fx-padding: 16;
 }
 
+/* ---------- scroll wrapper around the form cards ---------- */
+.form-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.form-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10;
+}
+
+.form-scroll .scroll-bar .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.form-scroll .scroll-bar .thumb {
+    -fx-background-color: #d5d8dd;
+    -fx-background-radius: 6;
+}
+
+.form-scroll .scroll-bar .thumb:hover {
+    -fx-background-color: #b8bcc4;
+}
+
+.form-scroll .scroll-bar .increment-button,
+.form-scroll .scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+
 .panel-title {
     -fx-font-size: 15px;
     -fx-font-weight: bold;

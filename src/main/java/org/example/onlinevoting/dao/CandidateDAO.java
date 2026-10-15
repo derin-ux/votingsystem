@@ -53,11 +53,13 @@ public class CandidateDAO {
         }
     }
 
+
+
     public boolean delete(int candidateId) throws SQLException {
-        String sql = "DELETE FROM candidates WHERE candidate_id = ?";
-        try (PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, candidateId);
-            return ps.executeUpdate() > 0;
+        String sql = "UPDATE candidates SET active = 0 WHERE candidate_id = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, candidateId);
+            return stmt.executeUpdate() > 0;
         }
     }
 
@@ -75,7 +77,7 @@ public class CandidateDAO {
 
     public List<Candidate> findAll() throws SQLException {
         List<Candidate> candidates = new ArrayList<>();
-        String sql = "SELECT * FROM candidates ORDER BY position_id, last_name";
+        String sql = "SELECT * FROM candidates WHERE active = 1 ORDER BY position_id, last_name";
         try (Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) candidates.add(mapRow(rs));
