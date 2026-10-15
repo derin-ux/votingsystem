@@ -1,0 +1,65 @@
+.root-pane {
+    -fx-background-color: #f4f5f7;
+}
+
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-border-color: #e3e6ea;
+    -fx-border-radius: 12;
+    -fx-padding: 32 36 28 36;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 2);
+}
+
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1d23;
+}
+
+.subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+}
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+}
+
+.text-field, .password-field {
+    -fx-pref-height: 36;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #d5d8dd;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1a1d23;
+    -fx-prompt-text-fill: #9ca3af;
+    -fx-highlight-fill: #2563eb;
+    -fx-highlight-text-fill: white;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #2563eb;
+}
+
+.error-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #dc2626;
+}
+
+.primary-button {
+    -fx-background-color: #16181d;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 8;
+    -fx-pref-height: 38;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2f343d;
+}
+
+.hyperlink {
+    -fx-text-fill: #2563eb;
+}

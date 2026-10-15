@@ -119,7 +119,6 @@ public class AdminDashboardController {
         if (adminNameLabel != null) adminNameLabel.setText("Signed in as " + username);
     }
 
-    // =====================================================
     //  Logout
     // =====================================================
     @FXML

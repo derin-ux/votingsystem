@@ -1,0 +1,75 @@
+.ballot-bar {
+    -fx-background-color: #1f2229;
+    -fx-padding: 14 20 14 20;
+    -fx-border-color: #2e323b;
+    -fx-border-width: 0 0 1 0;
+}
+
+.ballot-bar:bottom, .root-pane > .ballot-bar:last-child {
+    -fx-border-width: 1 0 0 0;
+}
+
+.ballot-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3f4f6;
+}
+
+.ballot-content {
+    -fx-padding: 18 20 18 20;
+}
+
+.ballot-scroll,
+.ballot-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.ballot-scroll {
+    -fx-border-color: transparent;
+}
+
+.position-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3f4f6;
+}
+
+.candidate-card {
+    -fx-background-color: #1f2229;
+    -fx-background-radius: 10;
+    -fx-border-color: #3b404b;
+    -fx-border-radius: 10;
+    -fx-padding: 14 10 14 10;
+    -fx-cursor: hand;
+    -fx-pref-width: 170;
+}
+
+.candidate-card:hover {
+    -fx-border-color: #6b7280;
+}
+
+.candidate-card:selected {
+    -fx-background-color: #1b2638;
+    -fx-border-color: #60a5fa;
+    -fx-border-width: 2;
+}
+
+.candidate-name {
+    -fx-font-size: 14px;
+    -fx-text-fill: #f3f4f6;
+}
+
+.candidate-avatar {
+    -fx-background-color: #2a2e37;
+    -fx-background-radius: 20;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-alignment: center;
+    -fx-text-fill: #9ca3af;
+    -fx-font-size: 14px;
+}
+
+.candidate-card:selected .candidate-avatar {
+    -fx-background-color: #60a5fa;
+    -fx-text-fill: #111111;
+}
