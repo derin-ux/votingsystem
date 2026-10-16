@@ -4,8 +4,8 @@ import org.example.onlinevoting.dao.ElectionDAO;
 import org.example.onlinevoting.model.Election;
 import java.sql.*;
 
-// Shared read-only election queries — no FXML, no admin/voter actions.
-// Called by CandidateController, ElectionController, and BallotController alike.
+// Called by CandidateController, ElectionController, and BallotController etc.
+
 public class ElectionService {
 
     public boolean isElectionActive() throws SQLException {
