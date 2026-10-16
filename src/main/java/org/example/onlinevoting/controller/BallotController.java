@@ -221,7 +221,7 @@ public class BallotController {
         }
     }
 
-    /** Writes all votes and flips has_voted in ONE transaction; any failure rolls everything back. */
+    // Writes all votes and flips has_voted in ONE transaction; any failure rolls everything back.
     private void submitVotes(Map<Integer, Integer> selections) {
         String insertVoteSql =
                 "INSERT INTO votes (user_id, candidate_id, position_id, election_id) VALUES (?, ?, ?, ?)";

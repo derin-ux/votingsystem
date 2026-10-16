@@ -72,8 +72,7 @@ public class AdminDashboardController {
     // ---------- Results tab ----------
     @FXML private Label resultsElectionLabel;
     @FXML private VBox resultsBox;
-
-    /** Runs automatically after the FXML loads. */
+    // Runs automatically after when FXML loads
     @FXML
     private void initialize() {
         // Tell each table column which value to show
@@ -92,7 +91,7 @@ public class AdminDashboardController {
         electionTimeCol.setCellValueFactory(d -> new SimpleStringProperty(String.valueOf(d.getValue().getStartTime())));
         electionStatusCol.setCellValueFactory(d -> new SimpleStringProperty(d.getValue().getStatus()));
 
-        // Show the position title (not the object) in the combo box
+        // Show the position title (not the object e.g Instead of Presiiident@46738 , it shows president) in the combo box
         candPositionCombo.setConverter(new StringConverter<>() {
             @Override public String toString(Position p) { return p == null ? "" : p.getTitle(); }
             @Override public Position fromString(String s) { return null; }
@@ -112,7 +111,7 @@ public class AdminDashboardController {
         refreshResults();
     }
 
-    /** Called by AdminLoginController right after loading this screen. */
+    // Called by AdminLoginController right after loading this screen.
     public void setAdmin(int adminId, String username) {
         this.adminId = adminId;
         this.username = username;
@@ -120,7 +119,6 @@ public class AdminDashboardController {
     }
 
     //  Logout
-    // =====================================================
     @FXML
     private void handleLogout() {
         SessionManager.clear();
@@ -131,9 +129,8 @@ public class AdminDashboardController {
         }
     }
 
-    // =====================================================
+
     //  Candidates
-    // =====================================================
     @FXML
     private void handleRegisterCandidate() {
         String error = validateCandidateForm();
@@ -180,9 +177,8 @@ public class AdminDashboardController {
         candidateMessageLabel.setVisible(false);
     }
 
-    // =====================================================
+
     //  Positions
-    // =====================================================
     @FXML
     private void handleAddPosition() {
         String title = positionTitleField.getText().trim();
@@ -216,9 +212,8 @@ public class AdminDashboardController {
         if (ok) { positionTitleField.clear(); refreshPositions(); }
     }
 
-    // =====================================================
+
     //  Elections
-    // =====================================================
     @FXML
     private void handleCreateElection() {
         try {
@@ -278,9 +273,8 @@ public class AdminDashboardController {
         if (ok) { refreshElections(); refreshResults(); }
     }
 
-    // =====================================================
+
     //  Results
-    // =====================================================
     @FXML
     private void handleRefreshResults() {
         refreshResults();
@@ -334,9 +328,8 @@ public class AdminDashboardController {
         return null;
     }
 
-    // =====================================================
+
     //  Refresh helpers
-    // =====================================================
     private void refreshPositions() {
         try {
             List<Position> positions = positionController.getAllPositions();
@@ -369,9 +362,10 @@ public class AdminDashboardController {
         }
     }
 
-    // =====================================================
+
+
+
     //  Form helpers
-    // =====================================================
     private void fillCandidateForm(Candidate c) {
         candFirstNameField.setText(c.getFirstName());
         candLastNameField.setText(c.getLastName());
@@ -443,9 +437,8 @@ public class AdminDashboardController {
         }
     }
 
-    // =====================================================
+
     //  Shared plumbing
-    // =====================================================
     @FunctionalInterface
     private interface DbAction {
         boolean run() throws SQLException;
